@@ -1,6 +1,5 @@
 // app/api/og-png/[memoryId]/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import sharp from "sharp";
 
 export const runtime = "nodejs";
 
@@ -11,30 +10,25 @@ export async function GET(
   try {
     const { memoryId } = params;
 
-    // ✅ ORIGIN AMAN (GANTI BASE_URL)
     const origin = req.nextUrl.origin;
 
-    // ✅ AMBIL OG WEBP
-    const res = await fetch(`${origin}/api/og/${memoryId}`, {
-      cache: "no-store",
-    });
+    // ✅ PANGGIL OG HOME YANG SUDAH PNG
+    const res = await fetch(
+      `${origin}/api/og-home?memoryId=${memoryId}`,
+      { cache: "no-store" }
+    );
 
     if (!res.ok) {
       return NextResponse.json(
-        { error: "Failed to fetch OG WebP" },
+        { error: "Failed to fetch OG PNG source" },
         { status: 404 }
       );
     }
 
     const arrayBuffer = await res.arrayBuffer();
 
-    // ✅ KONVERSI WEBP → PNG
-    const pngBuffer = await sharp(Buffer.from(arrayBuffer))
-      .png({ quality: 95 })
-      .toBuffer();
-
-    // ✅ ✅ FIX UTAMA: Buffer → Uint8Array
-    return new NextResponse(new Uint8Array(pngBuffer), {
+    // ✅ LANGSUNG KIRIM PNG TANPA SHARP
+    return new NextResponse(new Uint8Array(arrayBuffer), {
       status: 200,
       headers: {
         "Content-Type": "image/png",
@@ -42,7 +36,7 @@ export async function GET(
       },
     });
   } catch (err) {
-    console.error("OG PNG bridge failed:", err);
+    console.error("OG PNG proxy failed:", err);
 
     return NextResponse.json(
       { error: "OG PNG generation failed" },

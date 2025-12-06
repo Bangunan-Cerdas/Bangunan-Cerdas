@@ -7,7 +7,7 @@
 /build
 
 # production
-/.vercel
+
 
 # environment files
 .env
