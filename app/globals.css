@@ -1,0 +1,253 @@
+/* =========================================================
+   GLOBALS.CSS — PREMIUM DARK THEME (Geist Sans + Sky Accent)
+   ========================================================= */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =======================
+   DESIGN TOKENS (THEME)
+   ======================= */
+
+:root {
+  /* Color System */
+  --bg: #0f172a;
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-strong: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.12);
+
+  /* Text Colors */
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+
+  /* Accent — SKY 400 */
+  --accent: #38bdf8;
+  --accent-hover: #0ea5e9;
+
+  /* Shadows */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.35);
+
+  /* Radius */
+  --radius: 1rem;
+}
+
+/* =======================
+   BASE RESET
+   ======================= */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Geist Sans', ui-sans-serif, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+
+  min-height: 100vh;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden;
+
+  /* ✅ SCROLL GLOBAL HANYA DI SINI */
+  scroll-behavior: smooth;
+}
+
+/* Anchor */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Box model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* =======================
+   UTILITY CLASSES
+   ======================= */
+
+/* Card Base — match:
+   border border-gray-800 bg-gray-900/40 backdrop-blur-sm p-4 rounded-xl */
+.card-base {
+  background: rgba(17, 24, 39, 0.4); /* gray-900/40 */
+  border: 1px solid rgb(31, 41, 55); /* gray-800 */
+  border-radius: 0.75rem; /* rounded-xl */
+  backdrop-filter: blur(6px);
+}
+
+/* =======================
+   FORM INPUT
+   ======================= */
+
+/* Base visual for all text-like inputs & textarea
+   match: bg-gray-900 border border-gray-800 rounded-lg p-3 */
+.form-input {
+  background: rgb(17, 24, 39);      /* gray-900 */
+  border: 1px solid rgb(31, 41, 55);/* gray-800 */
+  border-radius: 0.5rem;           /* rounded-lg */
+  padding: 0.75rem;                /* p-3 */
+  color: rgb(229, 231, 235);       /* gray-200 */
+  width: 100%;
+  outline: none;
+}
+
+/* Placeholder */
+.form-input::placeholder {
+  color: rgb(156, 163, 175); /* gray-400 */
+}
+
+/* Unified focus state
+   match: focus:ring-2 focus:ring-blue-500 focus:ring-inset */
+.form-focus:focus {
+  border-color: rgb(59, 130, 246); /* blue-500 */
+  box-shadow: inset 0 0 0 2px rgb(59, 130, 246);
+}
+
+/* =======================
+   FILE INPUT WRAPPER
+   ======================= */
+
+/* match wrapper:
+   bg-gray-900 border border-gray-800 rounded-lg p-3
+   focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-inset */
+.form-file-wrapper {
+  background: rgb(17, 24, 39);
+  border: 1px solid rgb(31, 41, 55);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.form-file-wrapper:focus-within {
+  border-color: rgb(59, 130, 246); /* blue-500 */
+  box-shadow: inset 0 0 0 2px rgb(59, 130, 246);
+}
+
+/* =======================
+   PRIMARY BUTTON
+   ======================= */
+
+/* match:
+   bg-blue-600 hover:bg-blue-700 border border-blue-600 rounded-lg py-3 */
+.btn-primary {
+  width: 100%;
+  background: rgb(37, 99, 235);   /* blue-600 */
+  color: white;
+  padding: 0.75rem 1rem;          /* py-3 */
+  border-radius: 0.5rem;          /* rounded-lg */
+  font-weight: 500;
+  border: 1px solid rgb(37, 99, 235);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: rgb(29, 78, 216);   /* blue-700 */
+  border-color: rgb(29, 78, 216);
+}
+
+/* match:
+   focus:shadow-[inset_0_0_0_1px_rgb(147,197,253)]
+   focus:border-blue-300 */
+.btn-focus:focus {
+  outline: none;
+  border-color: rgb(147, 197, 253); /* blue-300 */
+  box-shadow: inset 0 0 0 1px rgb(147, 197, 253);
+}
+
+/* =======================
+   FIELD STACK
+   ======================= */
+
+/* match: flex flex-col gap-1 */
+.form-field-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* =======================
+   ANIMATIONS
+   ======================= */
+
+/* Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fadeIn { animation: fadeIn 0.25s cubic-bezier(0.16,1,0.3,1); }
+
+/* Zoom In */
+@keyframes zoomIn {
+  from { transform: scale(0.95); opacity: 0.6; }
+  to { transform: scale(1); opacity: 1; }
+}
+.animate-zoomIn { animation: zoomIn 0.28s cubic-bezier(0.16,1,0.3,1); }
+
+/* =======================
+   SCROLLBAR CUSTOM (UNTUK DIV SAJA, BUKAN BODY)
+   ======================= */
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: var(--surface);
+  border-radius: 10px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  border: 2px solid rgba(15,23,42,0.0);
+}
+
+/* ✅ TIDAK LAGI MENGATUR SCROLL-BEHAVIOR DI SINI */
+.scrollbar-custom {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(255,255,255,0.2) var(--surface); /* Firefox */
+}
+
+/* Mobile: momentum scroll hanya untuk overflow div jika ada */
+@media (pointer: coarse) {
+  .scrollbar-custom {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* =========================================================
+   GLOBAL VIEWPORT SCROLLBAR (HTML & BODY SAJA)
+   ========================================================= */
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: var(--surface) !important;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-radius: 10px !important;
+}
+
+/* Firefox */
+html,
+body {
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(255, 255, 255, 0.25) var(--surface) !important;
+}
+
