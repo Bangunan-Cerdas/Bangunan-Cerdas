@@ -19,8 +19,7 @@
     "jsx": "preserve", // ✅ fix utama
     "jsxImportSource": "react", // ✅ fix utama
     "types": [
-      "node",
-      "@vercel/og"
+      "node"
     ],
     "incremental": true,
     "plugins": [
