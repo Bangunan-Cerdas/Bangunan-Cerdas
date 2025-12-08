@@ -1,7 +1,8 @@
+// app/sitemap.ts
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const DOMAIN = "https://bangunancerdas.web.id";
+  const DOMAIN = "https://bangunan-cerdas.netlify.app";
 
   return [
     {

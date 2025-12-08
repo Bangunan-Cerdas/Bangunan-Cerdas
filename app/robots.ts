@@ -1,7 +1,8 @@
+// app/robots.ts
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const DOMAIN = "https://bangunancerdas.web.id";
+  const DOMAIN = "https://bangunan-cerdas.netlify.app";
 
   return {
     rules: [

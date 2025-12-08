@@ -1,3 +1,4 @@
+// app/layout.tsx
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import type { Metadata, Viewport } from "next";
@@ -25,7 +26,7 @@ export const viewport: Viewport = {
    📌 Metadata default untuk halaman statis
    ================================ */
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bangunancerdas.web.id/"),
+  metadataBase: new URL("https://bangunan-cerdas.netlify.app/"),
   title: "CV. Bangunan Cerdas Indonesia",
   description: "Smart Project Wall untuk menyimpan Project berharga Kami",
 

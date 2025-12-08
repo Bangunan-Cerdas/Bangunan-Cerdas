@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/og-home`,
+        url: "https://bangunan-cerdas.netlify.app/og/og-home.png",
         width: 1200,
         height: 630,
         alt: "Smart Project Wall - CV. Bangunan Cerdas Indonesia",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Smart Project Wall | CV. Bangunan Cerdas Indonesia",
     description:
       "Platform Galeri Pemasaran Digital. Simpan, kelola, dan tampilkan setiap Project dengan tampilan modern.",
-    images: [`${process.env.NEXT_PUBLIC_BASE_URL}/api/og-home`],
+    images: ["https://bangunan-cerdas.netlify.app/og/og-home.png"],
   },
 
   robots: {
