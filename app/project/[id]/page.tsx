@@ -40,7 +40,7 @@ export async function generateMetadata(
     const ogImageUrl =
       mem.og_file_name && mem.og_file_name.startsWith("http")
         ? mem.og_file_name
-        : "https://bangunan-cerdas.netlify.app/og/default.webp";
+        : "https://bangunan-cerdas.netlify.app/og/og-home.webp";
 
     return {
       title: `${mem.title} | Smart Project Wall`,
