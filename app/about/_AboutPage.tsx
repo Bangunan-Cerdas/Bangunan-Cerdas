@@ -127,6 +127,7 @@ export default function AboutPage() {
             {teamMembers.map((member, idx) => {
               let icon = "👨🏽‍💼🤝"; // default
               if (!member.phone && !member.email) icon = "🏗️";
+              else if (member.phone && !member.email) icon = "👷🏾🏗️";
               else if (!member.phone && member.email) icon = "👨🏽‍💻💡";
 
               return (
